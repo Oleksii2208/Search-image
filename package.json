@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/Search-image/",
+    "build": "vite build --base=/Search-image",
     "preview": "vite preview"
   },
   "devDependencies": {
