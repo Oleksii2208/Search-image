@@ -6,11 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search images</title>
     <script type="module" crossorigin src="/Search-image/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/Search-image/assets/vendor-CucEYOFD.js">
+    <link rel="stylesheet" crossorigin href="/Search-image/assets/vendor-DumFYO8Z.css">
     <link rel="stylesheet" crossorigin href="/Search-image/assets/index-DvPDDfy5.css">
   </head>
   <body>
     <main>
-      <h1>Hello world</h1>
+      <form class="form">
+        <label>
+          <input
+            type="text"
+            name="search"
+            placeholder="Search images..."
+            required
+          />
+        </label>
+        <button type="submit">Search</button>
+      </form>
+      <div id="loader" class="hidden"></div>
+      <ul class="gallery"></ul>
     </main>
 
   </body>
