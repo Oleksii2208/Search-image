@@ -5,9 +5,20 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const refs = {
   listEl: document.querySelector('.gallery'),
+  loader: document.querySelector('.loader'),
 };
 
-// console.log(refs.listEl);
+export function showLoader() {
+  refs.loader.classList.remove('hidden');
+}
+
+export function hideLoader() {
+  refs.loader.classList.add('hidden');
+}
+
+export function clearGallery() {
+  refs.listEl.innerHTML = '';
+}
 
 export function imageTemplate(image) {
   const {
@@ -41,21 +52,7 @@ export function imageTemplate(image) {
 }
 
 export function imagesTemplate(images) {
-  clearGallery();
-
-  if (images.length === 0) {
-    iziToast.error({
-      title: 'Error',
-      message:
-        'Sorry, there are no images matching your search query. Please try again!',
-      position: 'topRight',
-      timeout: 10000,
-    });
-    return;
-  }
-
   const markup = images.map(imageTemplate).join('\n');
-  // console.log(markup);
   refs.listEl.innerHTML = markup;
 
   const lightbox = new SimpleLightbox('.gallery a', {
@@ -66,12 +63,6 @@ export function imagesTemplate(images) {
   });
 
   lightbox.refresh();
-
-  // return markup;
-}
-
-function clearGallery() {
-  refs.listEl.innerHTML = '';
 }
 
 // refs.listEl.innerHTML = markup;
